@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "employee")
-public class Employee {
+public class EmpPersonalDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,10 @@ public class Employee {
 
     // One-to-One with Address
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
-    private Address address;
+    private EmpAddress address;
 
     // One-to-One with Contact
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
-    private Contact contact;
+    private EmpContactDetails contact;
 
-    // Getters and Setters
 }

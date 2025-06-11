@@ -1,12 +1,13 @@
 package com.example.Employee_Management.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "employee_contact")
-public class Contact {
+public class EmpContactDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +16,8 @@ public class Contact {
     private String mobileNo;
     private String email;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "empId")
-    private Employee employee;
-
-    // Getters and Setters
+    private EmpPersonalDetails employee;
 }
